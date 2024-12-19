@@ -1,0 +1,19 @@
+.home {
+    background-image: url('../../../public/images/301.gif');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+  
+  .home h1 {
+    font-size: 3rem;
+    font-family: 'ZCOOL KuaiLe', Arial, sans-serif;
+  }
+  
