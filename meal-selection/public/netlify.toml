@@ -1,9 +1,19 @@
 [[headers]]
-for = "/images/*"
+for = "/*"
 [headers.values]
-Content-Type = "image/jpeg"
+  Access-Control-Allow-Origin = "*"
 
 [[headers]]
-for = "/videos/*"
+for = "/images/*.jpg"
 [headers.values]
-Content-Type = "video/mp4"
+  Content-Type = "image/jpeg"
+
+[[headers]]
+for = "/images/*.png"
+[headers.values]
+  Content-Type = "image/png"
+
+[[headers]]
+for = "/videos/*.mp4"
+[headers.values]
+  Content-Type = "video/mp4"
