@@ -4,7 +4,7 @@ const BreakfastPage = ({ addItem, searchQuery  }) => {
   const foodItems = [
     { name: '黑豆浆', image: '/images/黑豆浆.jpeg' },
     { name: '红豆浆', image: '/images/红豆浆.jpeg' },
-    { name: '紫薯豆浆', image: '/images/紫薯.jpg' },
+    { name: '紫薯豆浆', image: '/images/紫薯.jpeg' },
     { name: '豆浆', image: '/images/豆浆.jpeg' },
     { name: '八宝粥', image: '/images/八宝粥.jpeg' },
     { name: '小米粥', image: '/images/小米粥.jpeg' },

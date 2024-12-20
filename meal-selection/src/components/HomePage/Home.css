@@ -1,19 +1,19 @@
 @keyframes slideshow {
-    0% { background-image: url('../../../public/images/1.jpg'); }
-    10% { background-image: url('../../../public/images/2.jpg'); }
-    20% { background-image: url('../../../public/images/3.jpg'); }
-    30% { background-image: url('../../../public/images/4.jpg'); }
-    40% { background-image: url('../../../public/images/5.jpg'); }
-    50% { background-image: url('../../../public/images/6.jpg'); }
-    60% { background-image: url('../../../public/images/7.jpg'); }
-    70% { background-image: url('../../../public/images/8.jpg'); }
-    80% { background-image: url('../../../public/images/9.JPG'); }
-    90% { background-image: url('../../../public/images/10.jpg'); }
-    100% { background-image: url('../../../public/images/IMG_7051.JPG'); }
+    0% { background-image: url('../../../public/images/1.jpeg'); }
+    10% { background-image: url('../../../public/images/2.jpeg'); }
+    20% { background-image: url('../../../public/images/3.jpeg'); }
+    30% { background-image: url('../../../public/images/4.jpeg'); }
+    40% { background-image: url('../../../public/images/5.jpeg'); }
+    50% { background-image: url('../../../public/images/6.jpeg'); }
+    60% { background-image: url('../../../public/images/7.jpeg'); }
+    70% { background-image: url('../../../public/images/8.jpeg'); }
+    80% { background-image: url('../../../public/images/9.jpeg'); }
+    90% { background-image: url('../../../public/images/10.jpeg'); }
+    100% { background-image: url('../../../public/images/IMG_7051.jpeg'); }
   }
   
   .home {
-    background-image: url('../../../public/images/1.jpg');
+    background-image: url('../../../public/images/1.jpeg');
     animation: slideshow 60s infinite;
     background-size: cover;
     background-position: center;
