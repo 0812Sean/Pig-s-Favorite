@@ -33,9 +33,9 @@ const App = () => {
   return (
     <div>
       {/* Video Background */}
-      <video className="video-background" autoPlay loop muted>
+      {/* <video className="video-background" autoPlay loop muted>
         <source src="images/背景.mp4" type="video/mp4" />
-      </video>
+      </video> */}
 
       <Navbar onSearch={handleSearch} />
       <Routes>

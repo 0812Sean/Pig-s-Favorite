@@ -29,7 +29,7 @@ const Navbar = ({ onSearch }) => {
   return (
     <nav className="navbar">
       <div className="logo" onClick={() => navigate('/')}>
-        <img src="/images/0301.JPG" alt="Logo" />
+        <img src="/images/0301.jpeg" alt="Logo" />
       </div>
 
       <div className="navbar-center">
