@@ -17,3 +17,8 @@ for = "/images/*.png"
 for = "/videos/*.mp4"
 [headers.values]
   Content-Type = "video/mp4"
+
+[[headers]]
+for = "/*.png"
+[headers.values]
+Content-Type = "image/png"

@@ -34,6 +34,7 @@ body {
 }
 
 .food-item {
+  top: 20px;
   position: relative; 
   margin: 1rem;
   text-align: center;
@@ -77,6 +78,10 @@ body {
   position: relative;
 }
 
+.selected-items {
+  padding-top: 80px;
+  margin-left: 20px;
+}
 .selected-items .confirm-button {
   margin-top: 1rem;
   background-color: #ff69b4; 
