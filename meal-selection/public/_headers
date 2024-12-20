@@ -1,5 +1,7 @@
 /images/*
   Content-Type: image/jpeg
+/videos/*
+  Content-Type: video/mp4
 /images/*
   Content-Type: image/png
 /images/*
