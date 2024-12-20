@@ -65,7 +65,7 @@ const Navbar = ({ onSearch }) => {
 
       <div className="audio-control" onClick={toggleMute}>
         <img
-          src={isMuted ? '/images/volume.png' : '/images/mute.png'}
+          src={isMuted ? '/images/volume.jpeg' : '/images/mute.jpeg'}
           alt="Audio Control"
         />
       </div>
