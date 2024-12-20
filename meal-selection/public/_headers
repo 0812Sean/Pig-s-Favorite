@@ -3,6 +3,6 @@
 /videos/*
   Content-Type: video/mp4
 /images/*
-  Content-Type: image/png
+  Content-Type: images/png
 /images/*
   Content-Type: image/jpg

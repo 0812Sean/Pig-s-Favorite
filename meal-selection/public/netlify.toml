@@ -11,7 +11,7 @@ for = "/images/*.jpg"
 [[headers]]
 for = "/images/*.png"
 [headers.values]
-  Content-Type = "image/png"
+  Content-Type = "images/png"
 
 [[headers]]
 for = "/videos/*.mp4"

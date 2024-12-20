@@ -4,6 +4,10 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
+        position: fixed; 
+    top: 0; 
+    width: 99%; 
+    z-index: 1000;
   }
   
   .logo {
@@ -68,9 +72,12 @@
   }
   
   .audio-control {
-    margin-left: 2rem;
+    margin-left: auto; 
+    margin-right: 1rem; 
     cursor: pointer;
-  }
+    display: flex;
+    align-items: center;
+}
   
   .audio-control img {
     width: 30px;

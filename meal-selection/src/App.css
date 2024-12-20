@@ -24,6 +24,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
 .food-list {
   display: flex;
   flex-wrap: wrap;
