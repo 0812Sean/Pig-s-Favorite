@@ -7,11 +7,11 @@ import DinnerPage from './components/DinnerPage';
 import SoupPage from './components/SoupPage';
 import DessertPage from './components/DessertPage';
 import SelectedItemsPage from './components/SelectedItemsPage';
-import Home from './components/HomePage/HomePage'
+import Home from './components/HomePage/HomePage';
 
 const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(''); 
+  const [searchQuery, setSearchQuery] = useState('');
 
   const addItem = (item) => {
     setSelectedItems((prev) => [...prev, item]);
@@ -23,7 +23,7 @@ const App = () => {
 
   const confirmOrder = () => {
     alert(`Your order: ${selectedItems.map((i) => i.name).join(', ')}`);
-    setSelectedItems([]); 
+    setSelectedItems([]);
   };
 
   const handleSearch = (query) => {
@@ -32,8 +32,13 @@ const App = () => {
 
   return (
     <div>
+      {/* Video Background */}
+      <video className="video-background" autoPlay loop muted>
+        <source src="images/背景.mp4" type="video/mp4" />
+      </video>
+
       <Navbar onSearch={handleSearch} />
-      <Routes>     
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/breakfast"
