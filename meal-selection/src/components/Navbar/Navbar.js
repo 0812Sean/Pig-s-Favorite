@@ -35,22 +35,25 @@ const Navbar = ({ onSearch }) => {
       <div className="navbar-center">
         <ul className="navbar-list">
           <li>
-            <Link to="/breakfast">Breakfast</Link>
+            <Link to="/breakfast">早餐</Link>
           </li>
           <li>
-            <Link to="/lunch">Lunch</Link>
+            <Link to="/lunch">午餐</Link>
           </li>
           <li>
-            <Link to="/dinner">Dinner</Link>
+            <Link to="/dinner">晚餐</Link>
           </li>
           <li>
-            <Link to="/soup">Soup</Link>
+            <Link to="/soup">汤</Link>
           </li>
           <li>
-            <Link to="/dessert">Dessert</Link>
+            <Link to="/dessert">甜品</Link>
           </li>
           <li>
-            <Link to="/selected-items">Selected Items</Link>
+            <Link to="/service">特殊服务</Link>
+          </li>
+          <li>
+            <Link to="/selected-items">已选</Link>
           </li>
         </ul>
         <div className="search-bar">

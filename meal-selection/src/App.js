@@ -8,22 +8,47 @@ import SoupPage from './components/SoupPage';
 import DessertPage from './components/DessertPage';
 import SelectedItemsPage from './components/SelectedItemsPage';
 import Home from './components/HomePage/HomePage';
+import ServicePage from './components/ServicePage';
 
 const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [itemCounts, setItemCounts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
 
   const addItem = (item) => {
     setSelectedItems((prev) => [...prev, item]);
+    setItemCounts((prevCounts) => ({
+      ...prevCounts,
+      [item.name]: (prevCounts[item.name] || 0) + 1,
+    }));
   };
 
-  const removeItem = (index) => {
-    setSelectedItems((prev) => prev.filter((_, i) => i !== index));
+  const removeItem = (item) => {
+    setItemCounts((prevCounts) => {
+      const updatedCounts = { ...prevCounts };
+      if (updatedCounts[item.name] > 0) {
+        updatedCounts[item.name] -= 1;
+      }
+      return updatedCounts;
+    });
+  
+    setSelectedItems((prev) => {
+      const index = prev.findIndex(
+        (selectedItem) =>
+          selectedItem.name === item.name && selectedItem.category === item.category
+      );
+      if (index !== -1) {
+        return prev.filter((_, i) => i !== index);
+      }
+      return prev;
+    });
   };
+  
 
   const confirmOrder = () => {
     alert(`Your order: ${selectedItems.map((i) => i.name).join(', ')}`);
     setSelectedItems([]);
+    setItemCounts({});
   };
 
   const handleSearch = (query) => {
@@ -32,33 +57,32 @@ const App = () => {
 
   return (
     <div>
-      {/* Video Background */}
-      {/* <video className="video-background" autoPlay loop muted>
-        <source src="images/背景.mp4" type="video/mp4" />
-      </video> */}
-
       <Navbar onSearch={handleSearch} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/breakfast"
-          element={<BreakfastPage addItem={addItem} searchQuery={searchQuery} />}
+          element={<BreakfastPage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
         />
         <Route
           path="/lunch"
-          element={<LunchPage addItem={addItem} searchQuery={searchQuery} />}
+          element={<LunchPage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
         />
         <Route
           path="/dinner"
-          element={<DinnerPage addItem={addItem} searchQuery={searchQuery} />}
+          element={<DinnerPage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
         />
         <Route
           path="/soup"
-          element={<SoupPage addItem={addItem} searchQuery={searchQuery} />}
+          element={<SoupPage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
         />
         <Route
           path="/dessert"
-          element={<DessertPage addItem={addItem} searchQuery={searchQuery} />}
+          element={<DessertPage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
+        />
+        <Route
+          path="/service"
+          element={<ServicePage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
         />
         <Route
           path="/selected-items"

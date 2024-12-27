@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BreakfastPage = ({ addItem, searchQuery  }) => {
+const BreakfastPage = ({ addItem, searchQuery, itemCounts, removeItem }) => {
   const foodItems = [
     { name: '黑豆浆', image: '/images/黑豆浆.jpeg' },
     { name: '红豆浆', image: '/images/红豆浆.jpeg' },
@@ -18,6 +18,7 @@ const BreakfastPage = ({ addItem, searchQuery  }) => {
     { name: '煮番薯', image: '/images/煮番薯.jpeg' },
     { name: '煮玉米', image: '/images/煮玉米.jpeg' },
   ];
+
   const filteredItems = foodItems.filter((item) =>
     item.name.includes(searchQuery)
   );
@@ -26,15 +27,35 @@ const BreakfastPage = ({ addItem, searchQuery  }) => {
     <div>
       <h2>早餐</h2>
       <div className="food-list">
-      {filteredItems.map((item) => (
-          <div key={item.name} className="food-item">
-            <img src={item.image} alt={item.name} />
-            <div className="food-info">
-              <p>{item.name}</p>
-              <button onClick={() => addItem({ ...item, category: '早餐' })}>+</button> 
+        {filteredItems.map((item) => {
+          const count = itemCounts[item.name] || 0; 
+          return (
+            <div key={item.name} className="food-item">
+              <img src={item.image} alt={item.name} />
+              <div className="food-info">
+                <p>{item.name}</p>
+                <div className="button-group">
+                  <button
+                    className="add-button"
+                    onClick={() => addItem({ ...item, category: '早餐' })}
+                  >
+                    {count === 0 ? '+' : count}
+                  </button>
+                  {count > 0 && (
+                    <button
+                      className="remove-button1"
+                      onClick={() =>
+                        removeItem({ ...item, category: '早餐' })
+                      }
+                    >
+                      -
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

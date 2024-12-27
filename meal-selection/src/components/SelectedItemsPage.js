@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const SelectedItemsPage = ({ selectedItems, removeItem }) => {
   const [message, setMessage] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
   const groupedItems = selectedItems.reduce((groups, item) => {
@@ -16,7 +17,7 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
   const confirmOrder = () => {
     const orderDetails = {
       items: selectedItems.map((item) => ({
-        name: item.name,
+        name: item.text || item.name,
         category: item.category,
       })),
       message,
@@ -37,8 +38,8 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
         }
         return response.json();
       })
-      .then((data) => {
-        alert(data.message);
+      .then(() => {
+        setIsDialogOpen(true);
         setMessage('');
         selectedItems.length = 0;
       })
@@ -52,22 +53,29 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
         <div key={category} className="category-group">
           <h3>{category}:</h3>
           <div className="food-list">
-            {groupedItems[category].map((item) => {
-              const globalIndex = selectedItems.findIndex(
-                (selectedItem) =>
-                  selectedItem.name === item.name &&
-                  selectedItem.category === item.category
-              );
-              return (
-                <div key={globalIndex} className="food-item">
+            {groupedItems[category].map((item, index) => (
+              <div
+                key={index}
+                className={
+                  item.category === '特殊服务' ? 'text-box1' : 'food-item'
+                }
+              >
+                {item.image && item.category !== '特殊服务' && (
                   <img src={item.image} alt={item.name} />
-                  <div className="food-info">
-                    <p>{item.name}</p>
-                    <button onClick={() => removeItem(globalIndex)}>-</button>
-                  </div>
+                )}
+                <div className="food-info">
+                  <p>{item.text || item.name}</p>
+                  <button
+                    className={`${
+                      item.category === '特殊服务' ? 'remove-button special-service' : 'remove-button'
+                    }`}
+                    onClick={() => removeItem(item)} // 传递 item 对象
+                  >
+                    -
+                  </button>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       ))}
@@ -84,6 +92,15 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
         <button onClick={confirmOrder} className="confirm-button">
           确定发送
         </button>
+      )}
+      {isDialogOpen && (
+        <div className="dialog">
+          <div className="dialog-content">
+            <h3>旨意已下达！</h3>
+            <p>小琛子已接到公主的命令～</p>
+            <button onClick={() => setIsDialogOpen(false)}>关闭</button>
+          </div>
+        </div>
       )}
     </div>
   );

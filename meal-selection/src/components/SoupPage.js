@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SoupPage = ({ addItem, searchQuery  }) => {
+const SoupPage = ({ addItem, searchQuery, itemCounts, removeItem }) => {
   const foodItems = [
     { name: '乌鸡海参汤', image: '/images/乌鸡海参汤.jpeg' },
     { name: '清补凉鸡汤', image: '/images/清补凉鸡汤.jpeg' },
@@ -20,15 +20,35 @@ const SoupPage = ({ addItem, searchQuery  }) => {
     <div>
       <h2>汤</h2>
       <div className="food-list">
-        {filteredItems.map((item) => (
-          <div key={item.name} className="food-item">
-            <img src={item.image} alt={item.name} />
-            <div className="food-info">
-              <p>{item.name}</p>
-              <button onClick={() => addItem({ ...item, category: '汤' })}>+</button> 
+        {filteredItems.map((item) => {
+          const count = itemCounts[item.name] || 0; 
+          return (
+            <div key={item.name} className="food-item">
+              <img src={item.image} alt={item.name} />
+              <div className="food-info">
+                <p>{item.name}</p>
+                <div className="button-group">
+                  <button
+                    className="add-button"
+                    onClick={() => addItem({ ...item, category: '汤' })}
+                  >
+                    {count === 0 ? '+' : count}
+                  </button>
+                  {count > 0 && (
+                    <button
+                      className="remove-button1"
+                      onClick={() =>
+                        removeItem({ ...item, category: '汤' })
+                      }
+                    >
+                      -
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
