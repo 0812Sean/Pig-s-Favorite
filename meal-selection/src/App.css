@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: 'ZCOOL KuaiLe', 'Pacifico', Arial, sans-serif; 
-  background-image: url(../public/images/background\ .gif);
+  background-color: #fff0f5; 
   background-size: cover;
   background-attachment: fixed;
 }

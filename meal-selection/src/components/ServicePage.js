@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ServicePage = ({ addItem }) => {
+const ServicePage = ({ toggleServiceItem, clickedStatus }) => {
   const texts = [
     { id: 1, text: '按摩' },
     { id: 2, text: '做美甲' },
@@ -16,9 +16,9 @@ const ServicePage = ({ addItem }) => {
           <p>{item.text}</p>
           <button
             className="add-button"
-            onClick={() => addItem({ ...item, category: '特殊服务' })}
+            onClick={() => toggleServiceItem({ ...item, category: '特殊服务' })}
           >
-            +
+            {clickedStatus[item.id] ? 'x' : '+'}
           </button>
         </div>
       ))}

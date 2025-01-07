@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ onSearch }) => {
@@ -35,25 +35,60 @@ const Navbar = ({ onSearch }) => {
       <div className="navbar-center">
         <ul className="navbar-list">
           <li>
-            <Link to="/breakfast">早餐</Link>
+            <NavLink
+              to="/breakfast"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              早餐
+            </NavLink>
           </li>
           <li>
-            <Link to="/lunch">午餐</Link>
+            <NavLink
+              to="/lunch"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              午餐
+            </NavLink>
           </li>
           <li>
-            <Link to="/dinner">晚餐</Link>
+            <NavLink
+              to="/dinner"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              晚餐
+            </NavLink>
           </li>
           <li>
-            <Link to="/soup">汤</Link>
+            <NavLink
+              to="/soup"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              汤
+            </NavLink>
           </li>
           <li>
-            <Link to="/dessert">甜品</Link>
+            <NavLink
+              to="/dessert"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              甜品
+            </NavLink>
           </li>
           <li>
-            <Link to="/service">特殊服务</Link>
+            <NavLink
+              to="/service"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              特殊服务
+            </NavLink>
           </li>
           <li>
-            <Link to="/selected-items">已选</Link>
+            <NavLink
+              to="/selected-items"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              已选
+            </NavLink>
           </li>
         </ul>
         <div className="search-bar">

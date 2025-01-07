@@ -46,10 +46,6 @@
     color: #FF80AB;
   }
   
-  .navbar-list li a.active {
-    border-bottom: 2px solid #FF80AB;
-  }
-  
   .search-bar {
     margin-left: 1rem;
     display: flex;
@@ -86,4 +82,36 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
   }
+  
+  .navbar-list li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: relative; /* 为了支持伪元素定位 */
+    transition: color 0.3s;
+  }
+  
+  .navbar-list li a:hover {
+    color: #FF80AB;
+  }
+  
+  .navbar-list li a.active {
+    color: #080707;
+  }
+  
+  .navbar-list li a.active::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px; 
+    height: 30px; 
+    background-image: url('../../../public/images/兔.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
   

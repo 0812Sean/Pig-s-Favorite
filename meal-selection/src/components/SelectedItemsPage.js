@@ -69,7 +69,7 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
                     className={`${
                       item.category === '特殊服务' ? 'remove-button special-service' : 'remove-button'
                     }`}
-                    onClick={() => removeItem(item)} // 传递 item 对象
+                    onClick={() => removeItem(item)} 
                   >
                     -
                   </button>
@@ -98,7 +98,12 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
           <div className="dialog-content">
             <h3>旨意已下达！</h3>
             <p>小琛子已接到公主的命令～</p>
-            <button onClick={() => setIsDialogOpen(false)}>关闭</button>
+            <button
+              onClick={() => {
+                setIsDialogOpen(false);
+                window.location.reload();
+              }}
+            >关闭</button>
           </div>
         </div>
       )}

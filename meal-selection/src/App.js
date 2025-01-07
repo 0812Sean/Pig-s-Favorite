@@ -13,6 +13,7 @@ import ServicePage from './components/ServicePage';
 const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemCounts, setItemCounts] = useState({});
+  const [clickedStatus, setClickedStatus] = useState({}); 
   const [searchQuery, setSearchQuery] = useState('');
 
   const addItem = (item) => {
@@ -44,11 +45,24 @@ const App = () => {
     });
   };
   
+  const toggleServiceItem = (item) => {
+    setClickedStatus((prev) => ({
+      ...prev,
+      [item.id]: !prev[item.id], 
+    }));
+
+    if (!clickedStatus[item.id]) {
+      addItem(item);
+    } else {
+      removeItem(item);
+    }
+  };
 
   const confirmOrder = () => {
     alert(`Your order: ${selectedItems.map((i) => i.name).join(', ')}`);
     setSelectedItems([]);
     setItemCounts({});
+    setClickedStatus({}); 
   };
 
   const handleSearch = (query) => {
@@ -82,7 +96,10 @@ const App = () => {
         />
         <Route
           path="/service"
-          element={<ServicePage addItem={addItem} removeItem={removeItem} searchQuery={searchQuery} itemCounts={itemCounts} />}
+          element={            <ServicePage
+            toggleServiceItem={toggleServiceItem}
+            clickedStatus={clickedStatus}
+          />}
         />
         <Route
           path="/selected-items"
