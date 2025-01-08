@@ -48,7 +48,7 @@ const SelectedItemsPage = ({ selectedItems, removeItem }) => {
 
   return (
     <div className="selected-items">
-      <h2>已选</h2>
+      <h1>已选</h1>
       {Object.keys(groupedItems).map((category) => (
         <div key={category} className="category-group">
           <h3>{category}:</h3>

@@ -43,6 +43,13 @@ const App = () => {
       }
       return prev;
     });
+    
+    if (item.category === '特殊服务') {
+      setClickedStatus((prev) => ({
+        ...prev,
+        [item.id]: false, 
+      }));
+    }
   };
   
   const toggleServiceItem = (item) => {
