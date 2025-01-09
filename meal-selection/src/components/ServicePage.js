@@ -7,6 +7,8 @@ const ServicePage = ({ toggleServiceItem, clickedStatus }) => {
     { id: 3, text: '玩游戏' },
     { id: 4, text: '陪逛街' },
     { id: 5, text: '旅游' },
+    { id: 6, text: '火锅' },
+    { id: 7, text: '烧烤' },
   ];
 
   return (

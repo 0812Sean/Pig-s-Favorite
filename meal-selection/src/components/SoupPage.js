@@ -10,6 +10,7 @@ const SoupPage = ({ addItem, searchQuery, itemCounts, removeItem }) => {
     { name: '霸王花排骨汤', image: '/images/霸王花排骨汤.jpeg' },
     { name: '黑豆排骨汤', image: '/images/黑豆排骨汤.jpeg' },
     { name: '紫菜蛋花汤', image: '/images/紫菜蛋花汤.jpeg' },
+    { name: '西红柿鸡蛋汤', image: '/images/西红柿鸡蛋汤.jpeg' },
   ];
 
   const filteredItems = foodItems.filter((item) =>

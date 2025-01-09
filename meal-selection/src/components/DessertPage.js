@@ -9,6 +9,7 @@ const DessertPage = ({ addItem, searchQuery, itemCounts, removeItem}) => {
     { name: '芋头西米露', image: '/images/芋头西米露.jpeg' },
     { name: '杨枝甘露', image: '/images/杨枝甘露.jpeg' },
     { name: '银耳莲子羹', image: '/images/银耳莲子.jpeg' },
+    { name: '桂圆鸡蛋糖水', image: '/images/桂圆鸡蛋糖水.jpeg' },
   ];
 
   const filteredItems = foodItems.filter((item) =>
