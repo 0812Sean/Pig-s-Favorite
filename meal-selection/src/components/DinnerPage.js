@@ -36,6 +36,7 @@ const DinnerPage = ({ addItem, searchQuery, itemCounts, removeItem }) => {
     { name: '葱烧鸡腿', image: '/images/葱烧鸡腿.jpeg' },
     { name: '香菇滑鸡', image: '/images/香菇滑鸡.jpeg' },
     { name: '肉末豆腐', image: '/images/肉末豆腐.jpeg' },
+    { name: '酱油豆腐 ', image: '/images/酱油豆腐.jpeg' },
     { name: '辣椒炒肉', image: '/images/辣椒炒肉.jpeg' },
     { name: '土豆红烧肉', image: '/images/土豆红烧肉.jpeg' },
     { name: '咸橄榄焖鱼', image: '/images/咸橄榄焖鱼.jpeg' },
