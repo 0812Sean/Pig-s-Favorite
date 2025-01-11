@@ -1,12 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMuted, setIsMuted] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const audioRef = useRef(null);
+  const menuRef = useRef(null);
   const navigate = useNavigate();
 
   const handleSearch = (query) => {
@@ -29,8 +30,22 @@ const Navbar = ({ onSearch }) => {
 
   const closeMenu = () => setIsMenuOpen(false); 
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={menuRef}>
       <div className="logo" onClick={() => navigate('/')}>
         <img src="/images/0301.jpeg" alt="Logo" />
       </div>
@@ -54,7 +69,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/lunch"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               午餐
             </NavLink>
@@ -63,7 +78,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/dinner"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               晚餐
             </NavLink>
@@ -72,7 +87,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/soup"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               汤
             </NavLink>
@@ -81,7 +96,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/dessert"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               甜品
             </NavLink>
@@ -90,7 +105,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/service"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               特殊服务
             </NavLink>
@@ -99,7 +114,7 @@ const Navbar = ({ onSearch }) => {
             <NavLink
               to="/selected-items"
               className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMenu} 
+              onClick={closeMenu}
             >
               已选
             </NavLink>
